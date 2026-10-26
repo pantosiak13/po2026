@@ -1,4 +1,4 @@
-package Lab1;
+package agh.po.lab1;
 
 import java.util.HashSet;
 import java.util.Random;
