@@ -1,5 +1,8 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CodingBat
 {
     public boolean startHi(String str)
@@ -32,6 +35,27 @@ public class CodingBat
     {
         return "Hello " + name + "!";
     }
+    //////////////////////////////////////////////////////LAB4
+    public Map <String, String> mapAB(Map<String, String> map) 
+    {
+        if (map.containsKey("a") && map.containsKey("b")) 
+        {
+            String combined = map.get("a") + map.get("b");
+            map.put("ab", combined);
+        }
+        return map;
+    }
+
+    public Map <String, Integer> wordLen(String[] strings)
+    {
+        Map<String, Integer> map = new HashMap<>();
+        for (String s : strings) 
+        {
+            map.put(s, s.length());
+        }
+        return map;
+    }
+
 
     public static void main(String[] args) {
         CodingBat cb = new CodingBat();
@@ -43,8 +67,14 @@ public class CodingBat
 
         int[] tablica = {1, 2, 3};
         System.out.println("sum3([1, 2, 3]) -> " + cb.sum3(tablica));                 //6
-
         System.out.println("helloName(\"Bob\") -> " + cb.helloName("Bob"));           //Hello Bob!
-    }
 
+        System.out.println("\n LAB4");
+        Map<String, String> testMap = new HashMap<>();
+        testMap.put("a", "Hi");
+        testMap.put("b", "There");
+        System.out.println("mapAB({'a': 'Hi', 'b': 'There'}) -> " + cb.mapAB(testMap));
+        String[] slowa = {"this", "and", "that", "and"}; // dla
+        System.out.println("wordLen([\"this\", \"and\", \"that\", \"and\"]) -> " + cb.wordLen(slowa));
+    }
 }

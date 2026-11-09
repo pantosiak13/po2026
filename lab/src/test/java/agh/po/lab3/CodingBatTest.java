@@ -1,6 +1,10 @@
 package agh.po.lab3;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CodingBatTest {
 
@@ -32,5 +36,22 @@ public class CodingBatTest {
         assertEquals("Hello Bob!", cb.helloName("Bob"));
         assertEquals("Hello Alice!", cb.helloName("Alice"));
         assertEquals("Hello X!", cb.helloName("X"));
+    }
+
+    @Test
+    public void testMapAB() {
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "Hi");
+        map.put("b", "There");
+        
+        assertEquals("HiThere", cb.mapAB(map).get("ab"));
+    }
+
+    @Test
+    public void testWordLen() {
+        Map<String, Integer> res = cb.wordLen(new String[]{"this", "and", "that", "and"});
+        
+        assertEquals(Integer.valueOf(4), res.get("this"));
+        assertEquals(Integer.valueOf(3), res.get("and"));
     }
 }
