@@ -11,6 +11,15 @@ public class CodingBat
             return true;
         return false;
     }
+    public boolean lastDigit(int a, int b)
+    {
+        String tekstA = String.valueOf(a);
+        String tekstB = String.valueOf(b);
+        if (tekstA.substring(tekstA.length() - 1, tekstA.length()).equals(tekstB.substring(tekstB.length() - 1, tekstB.length()))) {
+            return true;
+        }
+        return false;
+    }
 
     public boolean parrotTrouble(boolean talking, int hour)
     {
