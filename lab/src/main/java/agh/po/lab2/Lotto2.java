@@ -1,40 +1,50 @@
 package agh.po.lab2;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
-public class Lotto2 {
-    public static void main(String[] args) {
-        
+public class Lotto2
+{
+    public static void main(String[] args)
+    {
         if (args.length != 6)
         {
             System.out.println("musi byc 6 liczb");
             return;
         }
-        
+
         ArrayList<Integer> typy = new ArrayList<>();
-        for (int i = 0; i < args.length; i++) 
+        for (int i = 0; i < args.length; i++)
         {
-            typy.add(Integer.parseInt(args[i]));
+            int typ = Integer.parseInt(args[i]);
+            if (typ < 1 || typ > 49)
+            {
+                System.out.println("liczby musza byc z zakresu 1-49");
+                return;
+            }
+            if (typy.contains(typ))
+            {
+                System.out.println("liczby nie moga sie powtarzac");
+                return;
+            }
+            typy.add(typ);
         }
-        
+
         Random generator = new Random();
         ArrayList<Integer> wylosowane = new ArrayList<>();
 
         while (wylosowane.size() < 6)
         {
             int liczba = generator.nextInt(49) + 1;
-            boolean czy_zajeta = wylosowane.contains(liczba);
-            if (czy_zajeta == false)
+            boolean czyZajeta = wylosowane.contains(liczba);
+            if (!czyZajeta)
             {
                 wylosowane.add(liczba);
             }
         }
 
-
         ArrayList<Integer> trafienia = new ArrayList<>(typy); // trafienia - kopia typów
-        trafienia.retainAll(wylosowane); //bierzemy tylko część wspólną typów i trafień
+        trafienia.retainAll(wylosowane); // zostawiamy tylko część wspólną typów i losowania
 
         int liczbaTrafien = trafienia.size();
 

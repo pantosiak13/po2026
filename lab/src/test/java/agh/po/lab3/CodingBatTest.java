@@ -43,15 +43,20 @@ public class CodingBatTest {
         Map<String, String> map = new HashMap<>();
         map.put("a", "Hi");
         map.put("b", "There");
-        
-        assertEquals("HiThere", cb.mapAB(map).get("ab"));
+
+        Map<String, String> res = cb.mapAB(map);
+
+        assertEquals("HiThere", res.get("ab"));
+        assertEquals("Hi", res.get("a"));
+        assertEquals("There", res.get("b"));
     }
 
     @Test
     public void testWordLen() {
         Map<String, Integer> res = cb.wordLen(new String[]{"this", "and", "that", "and"});
-        
+
         assertEquals(Integer.valueOf(4), res.get("this"));
         assertEquals(Integer.valueOf(3), res.get("and"));
+        assertEquals(Integer.valueOf(4), res.get("that"));
     }
 }
