@@ -43,8 +43,8 @@ public class Lotto2
             }
         }
 
-        ArrayList<Integer> trafienia = new ArrayList<>(typy); // trafienia - kopia typów
-        trafienia.retainAll(wylosowane); // zostawiamy tylko część wspólną typów i losowania
+        ArrayList<Integer> trafienia = new ArrayList<>(typy);
+        trafienia.retainAll(wylosowane);
 
         int liczbaTrafien = trafienia.size();
 
